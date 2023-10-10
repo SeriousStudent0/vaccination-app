@@ -1,0 +1,12 @@
+<div class="detail" *ngIf="center">
+    <div class="box">
+        <h2 [title]="center.name">{{center.name}}</h2> 
+        <div>{{center.address}}
+            , 
+            <span>{{center.postalCode}}</span>
+            ,
+            <span>{{center.city}}</span>
+        </div>
+        <button [routerLink]="['/center/{{center.id}}']">Choisir</button>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<p>Liste des centres de vaccination :</p>
+
+<div class="detail" *ngIf="center">
+    <div>
+        <h2 [title]="center.name">{{center.name}}</h2> 
+        <div>{{center.address}}
+            <span>{{center.postalCode}}</span>
+            <span>{{center.city}}</span>
+        </div>
+        <div>Ouvert depuis le {{center.openingDate}}</div>
+    </div>
+
+    <div>
+        <button (click)="clearName()">Clear Name</button>
+        <button (click)="delete()">Supprimer Centre</button>
+    </div>
+
+    <input [(ngModel)]="center.name">
+</div>

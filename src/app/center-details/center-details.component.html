@@ -1,0 +1,13 @@
+<p>center-details works!</p>
+
+<div>
+    {{ id ? id : 999 }}
+</div>
+<div>
+    <h2 [title]="center!.name">{{center!.name}}</h2> 
+    <div>{{center!.address}}
+        <span>{{center!.postalCode}}</span>
+        <span>{{center!.city}}</span>
+    </div>
+    <div>Ouvert depuis le {{center!.openingDate}}</div>
+</div>
