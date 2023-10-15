@@ -12,33 +12,6 @@ export class VaccinationService {
 
   constructor(private httpClient: HttpClient) { }
 
-  centers: VaccinationCenter[] = [
-    {
-      id: 1,
-      name: "vacccenter1",
-      openingDate: new Date(2023, 10, 10),
-      address: "12 rue de la rue",
-      city: "Nancy",
-      postalCode: "54000"
-    },
-    {
-      id: 2,
-      name: "vacccenter2",
-      openingDate: new Date(2023, 10, 8),
-      address: "11 rue de la rue",
-      city: "Lyon",
-      postalCode: "69000"
-    },
-    {
-      id: 3,
-      name: "vacccenter3",
-      openingDate: new Date(2023, 10, 9),
-      address: "10 rue de la rue",
-      city: "Paris",
-      postalCode: "10000"
-    }
-  ]
-
   getAllvaccinationCenter() : Observable<VaccinationCenter[]>{
     return this.httpClient.get<VaccinationCenter[]>('http://localhost:8080/public/healthcenter');
   }
