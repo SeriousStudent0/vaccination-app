@@ -68,7 +68,8 @@
               "browserTarget": "vaccination-app:build:production"
             },
             "development": {
-              "browserTarget": "vaccination-app:build:development"
+              "browserTarget": "vaccination-app:build:development",
+              "port": 4201
             }
           },
           "defaultConfiguration": "development"
