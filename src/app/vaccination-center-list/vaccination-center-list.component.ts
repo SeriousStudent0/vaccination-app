@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { VaccinationCenter } from '../vaccination-center';
 import { VaccinationService } from '../vaccination.service';
+import { HealthCenter } from '../healthCenter';
 
 @Component({
   selector: 'app-vaccination-center-list',
@@ -9,9 +9,9 @@ import { VaccinationService } from '../vaccination.service';
 })
 export class VaccinationCenterListComponent{
 
-  @Input() centers!: VaccinationCenter[];
+  @Input() centers!: HealthCenter[];
   //centers!: VaccinationCenter[];
-  selected?: VaccinationCenter;
+  selected?: HealthCenter;
 
   constructor(){}
 
@@ -25,15 +25,15 @@ export class VaccinationCenterListComponent{
   }
 */
 
-  isSpecialCenter(center: VaccinationCenter){
-    return center.city == "Nancy";
+  isSpecialCenter(center: HealthCenter){
+    return center.address.city == "Nancy";
   }
 
-  selectedCenter(aCenter: VaccinationCenter): void{
+  selectedCenter(aCenter: HealthCenter): void{
     this.selected=aCenter;
   }
 
-  onDeleted(center: VaccinationCenter): void{
+  onDeleted(center: HealthCenter): void{
     delete this.selected;
     this.centers.splice(this.centers.indexOf(center), 1);
   }

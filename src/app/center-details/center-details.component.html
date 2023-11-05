@@ -1,13 +1,23 @@
-<p>center-details works!</p>
+<p>Prise de rendez-vous pour vaccination Covid-19</p>
 
 <div>
-    {{ id ? id : 999 }}
+    <p>Centre de vaccination selectionné :</p>
+    {{center!.name}}
+    {{center!.address.street}}, {{center!.address.postalCode}} {{center!.address.city}}
 </div>
 <div>
-    <h2 [title]="center!.name">{{center!.name}}</h2> 
-    <div>{{center!.address}}
-        <span>{{center!.postalCode}}</span>
-        <span>{{center!.city}}</span>
+    <div>
+        <p>Prénom:</p>
+        <input type="text" placeholder="Prénom" [(ngModel)]="firstname">
+        <p>Nom:</p>
+        <input type="text" placeholder="Nom" [(ngModel)]="lastname">
     </div>
-    <div>Ouvert depuis le {{center!.openingDate}}</div>
+    <div>
+        <p>Email:</p>
+        <input type="text" placeholder="adresse@email.ww" [(ngModel)]="newPatient!.email">
+    </div>
+    <div>
+        <p>Date du rendez-vous :</p>
+        <input type="date" [(ngModel)]="newRDV!.date">
+    </div>
 </div>

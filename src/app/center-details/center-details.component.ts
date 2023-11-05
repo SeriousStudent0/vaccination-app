@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VaccinationCenter } from '../vaccination-center';
 import { VaccinationService } from '../vaccination.service';
 import { defaultIfEmpty } from 'rxjs';
+import { HealthCenter } from '../healthCenter';
+import { Patient, PatientRequest } from '../patient';
+import { RendezVous } from '../rendezVous';
 
 @Component({
   selector: 'app-center-details',
@@ -11,8 +13,12 @@ import { defaultIfEmpty } from 'rxjs';
 })
 export class CenterDetailsComponent implements OnInit{
 
-  center : VaccinationCenter | undefined;
+  center : HealthCenter | undefined;
   id : Number = 0;
+  newPatient : PatientRequest | undefined;
+  firstname = "";
+  lastname = "";
+  newRDV : RendezVous | undefined;
 
   constructor(private route: ActivatedRoute, private service: VaccinationService){}
 
@@ -20,9 +26,8 @@ export class CenterDetailsComponent implements OnInit{
     const idParam = Number(this.route.snapshot.paramMap.get('id'));
     if (idParam !== null) {
       this.id = idParam;
-      //const id = parseInt(idParam);
       this.service.getSpecificCenter(idParam)
-      .pipe(defaultIfEmpty({} as VaccinationCenter))
+      .pipe(defaultIfEmpty({} as HealthCenter))
       .subscribe((specificCenter) => {
         this.center = specificCenter;
       });

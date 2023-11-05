@@ -3,9 +3,9 @@
         <h2 [title]="center.name">{{center.name}}</h2> 
         <div>{{center.address}}
             , 
-            <span>{{center.postalCode}}</span>
+            <span>{{center.address.postalCode}}</span>
             ,
-            <span>{{center.city}}</span>
+            <span>{{center.address.city}}</span>
         </div>
         <button [routerLink]="['/center/{{center.id}}']">Choisir</button>
     </div>

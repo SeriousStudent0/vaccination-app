@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { VaccinationCenter } from '../vaccination-center';
 import { ActivatedRoute } from '@angular/router';
+import { HealthCenter } from '../healthCenter';
 
 @Component({
   selector: 'app-center-box',
@@ -9,8 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CenterBoxComponent implements OnInit {
 
-  @Input() center?: VaccinationCenter;
-  @Output() deleted = new EventEmitter<VaccinationCenter>();
+  @Input() center?: HealthCenter;
+  @Output() deleted = new EventEmitter<HealthCenter>();
   
   constructor( private route: ActivatedRoute){}
 

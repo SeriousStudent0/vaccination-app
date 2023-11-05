@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VaccinationService } from '../vaccination.service';
-import { VaccinationCenter } from '../vaccination-center';
 import { defaultIfEmpty } from 'rxjs';
+import { HealthCenter } from '../healthCenter';
 
 @Component({
   selector: 'app-center-searchbar',
@@ -10,15 +10,15 @@ import { defaultIfEmpty } from 'rxjs';
 })
 export class CenterSearchbarComponent implements OnInit{
 
-  centers: VaccinationCenter[] = [];
+  centers: HealthCenter[] = [];
   searchQuery : string = "";
-  selected?: VaccinationCenter;
+  selected?: HealthCenter;
 
   constructor(private service: VaccinationService){}
 
   ngOnInit() : void{
     this.service.getAllvaccinationCenter().subscribe({
-      next: (data: VaccinationCenter[]) => {
+      next: (data: HealthCenter[]) => {
         this.centers = data;
       },
       error: (error) => {
@@ -29,7 +29,7 @@ export class CenterSearchbarComponent implements OnInit{
 
   search() : void{
     this.service.getAllvaccinationCenterSearchByCity(this.searchQuery)
-    .pipe(defaultIfEmpty({} as VaccinationCenter[]))
+    .pipe(defaultIfEmpty({} as HealthCenter[]))
     .subscribe((vaccinationCenterList) =>{
       this.centers = vaccinationCenterList;
     });
@@ -38,7 +38,7 @@ export class CenterSearchbarComponent implements OnInit{
   searchEmpty() : void{
     this.searchQuery = "";
     this.service.getAllvaccinationCenterSearchByCity(this.searchQuery)
-    .pipe(defaultIfEmpty({} as VaccinationCenter[]))
+    .pipe(defaultIfEmpty({} as HealthCenter[]))
     .subscribe((vaccinationCenterList) =>{
       this.centers = vaccinationCenterList;
     });
