@@ -1,12 +1,12 @@
 <div class="detail" *ngIf="center">
     <div class="box">
         <h2 [title]="center.name">{{center.name}}</h2> 
-        <div>{{center.address}}
+        <div>{{center.address.street}}
             , 
             <span>{{center.address.postalCode}}</span>
             ,
             <span>{{center.address.city}}</span>
         </div>
-        <button [routerLink]="['/center/{{center.id}}']">Choisir</button>
+        <button [routerLink]="['/center', center.id]">Choisir</button>
     </div>
 </div>

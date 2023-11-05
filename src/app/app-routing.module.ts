@@ -6,7 +6,7 @@ import { CenterSearchbarComponent } from './center-searchbar/center-searchbar.co
 import { CenterDetailsComponent } from './center-details/center-details.component';
 
 const routes: Routes = [
-  { path: "first", component: FirstComponent},
+  { path: "confirmation", component: FirstComponent},
   { path: "second", component: SecondComponent},
   { path: "centers", component: CenterSearchbarComponent},
   { path: "center/:id", component: CenterDetailsComponent},

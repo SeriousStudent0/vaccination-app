@@ -1,23 +1,27 @@
-<p>Prise de rendez-vous pour vaccination Covid-19</p>
+<div *ngIf="toggleDisplay">
+    <p>Prise de rendez-vous pour vaccination Covid-19</p>
 
-<div>
-    <p>Centre de vaccination selectionné :</p>
-    {{center!.name}}
-    {{center!.address.street}}, {{center!.address.postalCode}} {{center!.address.city}}
-</div>
-<div>
     <div>
-        <p>Prénom:</p>
-        <input type="text" placeholder="Prénom" [(ngModel)]="firstname">
-        <p>Nom:</p>
-        <input type="text" placeholder="Nom" [(ngModel)]="lastname">
+        <p>Centre de vaccination selectionné :</p>
+        {{center!.name}}
+        {{center!.address.street}}, {{center!.address.postalCode}} {{center!.address.city}}
     </div>
     <div>
-        <p>Email:</p>
-        <input type="text" placeholder="adresse@email.ww" [(ngModel)]="newPatient!.email">
-    </div>
-    <div>
-        <p>Date du rendez-vous :</p>
-        <input type="date" [(ngModel)]="newRDV!.date">
+        <div>
+            <p>Prénom:</p>
+            <input type="text" placeholder="Prénom" [(ngModel)]="firstname">
+            <p>Nom:</p>
+            <input type="text" placeholder="Nom" [(ngModel)]="lastname">
+        </div>
+        <div>
+            <p>Email:</p>
+            <input type="text" placeholder="adresse@email.ww" [(ngModel)]="newPatient.email">
+        </div>
+        <div>
+            <p>Date du rendez-vous :</p>
+            <input type="date" [(ngModel)]="newRDV.date">
+        </div>
+        <button [routerLink]="['/centers']">Annuler</button>
+        <button (click)="bookRDV()">Réserver</button>
     </div>
 </div>

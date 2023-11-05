@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HealthCenter } from './healthCenter';
+import { Patient, PatientRequest } from './patient';
+import { RendezVous, RendezVousRequest } from './rendezVous';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +37,13 @@ export class VaccinationService {
           center.id === id)
       )
     );
+  }
+
+  createNewPatient(patient : PatientRequest) : Observable<Patient>{
+    return this.httpClient.post<Patient>('http://localhost:8080/patient/create', patient);
+  }
+
+  createNewRDV(rdv : RendezVousRequest) : Observable<RendezVous>{
+    return this.httpClient.post<RendezVous>('http://localhost:8080/rendezvous/create', rdv);
   }
 }

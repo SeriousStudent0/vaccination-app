@@ -1,6 +1,6 @@
 import { Address, AddressBody } from "./address";
 import { Doctor, DoctorBody } from "./doctor";
-import { RendezVous } from "./rendezVous";
+import { RendezVous, RendezVousBody } from "./rendezVous";
 
 
 export interface Patient{
@@ -8,15 +8,15 @@ export interface Patient{
     name: string;
     email: string;
     vaccinated: boolean;
-    address: Address;
     doctor: Doctor;
-    rdv: RendezVous[];
 }
 
 export interface PatientRequest{
     id?: number;
     name: string;
     email: string;
-    address: AddressBody;
-    doctor: DoctorBody;
+}
+
+export interface PatientBody{
+    id: number;
 }
