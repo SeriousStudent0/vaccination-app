@@ -15,7 +15,7 @@ export class VaccinationService {
   constructor(private httpClient: HttpClient) { }
 
   getAllvaccinationCenter() : Observable<HealthCenter[]>{
-    return this.httpClient.get<HealthCenter[]>('http://localhost:8080/public/healthcenter');
+    return this.httpClient.get<HealthCenter[]>('http://localhost:8080/healthcenter/public');
   }
 
   getAllvaccinationCenterSearchByCity(letters : string) : Observable<HealthCenter[]>{
@@ -40,10 +40,10 @@ export class VaccinationService {
   }
 
   createNewPatient(patient : PatientRequest) : Observable<Patient>{
-    return this.httpClient.post<Patient>('http://localhost:8080/patient/create', patient);
+    return this.httpClient.post<Patient>('http://localhost:8080/patient/public/create', patient);
   }
 
   createNewRDV(rdv : RendezVousRequest) : Observable<RendezVous>{
-    return this.httpClient.post<RendezVous>('http://localhost:8080/rendezvous/create', rdv);
+    return this.httpClient.post<RendezVous>('http://localhost:8080/rendezvous/public/create', rdv);
   }
 }
